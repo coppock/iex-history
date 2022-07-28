@@ -21,7 +21,7 @@ https://storage.googleapis.com/assets-bucket/exchange/assets/IEX%20TOPS%20Specif
 ## Build Instructions
 
 ```
-make pcap2txt
+make pcap2csv
 ```
 
 The build has been tested on macOS using the BSD development commands.
