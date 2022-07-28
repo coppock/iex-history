@@ -1,0 +1,2 @@
+LDFLAGS = -lpcap
+CFLAGS = -Wall
