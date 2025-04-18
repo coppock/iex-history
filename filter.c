@@ -52,6 +52,17 @@ void process_iex_message(const u_char *bytes) {
 
 	putchar(bytes[0]);
 	switch (bytes[0]) {
+	case 'Q':
+		printf(",0x%02x,", bytes[1]);
+		puttimestamp(letoh(bytes+2, 8));
+		putchar(',');
+		for (i = 0; (bytes+10)[i] != ' ' && i < 8; ++i)
+			putchar((bytes+10)[i]);
+		printf(",%lu", (long unsigned int)letoh(bytes+18, 4));
+		printf(",%.4f", letoh(bytes+22, 8)/1e4);
+		printf(",%.4f", letoh(bytes+30, 8)/1e4);
+		printf(",%lu", (long unsigned int)letoh(bytes+38, 4));
+		break;
 	case 'S':
 		printf(",%c,", bytes[1]);
 		puttimestamp(letoh(bytes+2, 8));
